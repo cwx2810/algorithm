@@ -29,12 +29,12 @@ int threeSumClosest(vector<int>& nums, int target) {
 		while(j<k){
 			int sum=nums[i]+nums[j]+nums[k];//初始化sum 
 			if(sum==target){
-				return sum;
+				return sum;//不用再移动游标，有这一组足够了 
 			}
 			if(abs(target-sum)<abs(target-closet)){//逼近的够小就替换 
 				closet=sum;
 			}
-			if(sum>target){//不断逼近 
+			if(sum>target){//不满足条件，两端游标不断逼近 
 				k--;
 			}else{
 				j++;
