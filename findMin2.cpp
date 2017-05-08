@@ -7,8 +7,8 @@ using namespace std;
 int findMin(vector<int> &nums);
 
 int main(){
-	int a[]={4,5,6,7,2,2,2};
-    vector<int> A(a,a+7);
+	int a[]={10,1,10,10,10};
+    vector<int> A(a,a+5);
     int result=findMin(A);
     cout<<result<<endl;
 }
@@ -33,9 +33,9 @@ int findMin(vector<int> &nums){
 			return nums[i];
 		}
 		int mid=(i+j)/2;
-		if(mid>i){
+		if(nums[mid]>nums[i]){
 			i=mid;
-		}else if(mid<i){
+		}else if(nums[mid]<nums[i]){
 			j=mid;
 		}else{
 			i++;
