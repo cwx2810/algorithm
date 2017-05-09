@@ -15,7 +15,7 @@ int main(){
 
 
 
-//有重复元素的数组里找最小值，和没重复的区别就在于如果发现mid=i，跳过i（i++）即可 
+//有重复元素的数组里找最小值，和没重复的区别就在于如果发现mid=i，跳过i（i++）即可  
 int findMin(vector<int> &nums){
 	if(nums.size()==0){
 		return 0;
