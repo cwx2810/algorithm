@@ -32,10 +32,8 @@ int main(){
 }
 
 
-
-//求matrix中1元素构成矩形的最大面积
-//思路：将每一行看做一个直方图的底，1代表高度为1,0代表没有高度，
-//利用求直方图最大矩形面积，先求出每个j中1的个数作为传入数组参数的每个元素~ 
+//求由0和1组成的矩阵中1的最大矩形面积
+//思路：一行一行看，计算每一行单看对应的直方图的最大矩形面积 
 int maximalRectangle(vector<vector<char> > &matrix){
 	//判断行或列为空 
 	if(matrix.empty() || matrix[0].empty()){
@@ -82,6 +80,5 @@ int largestRectangleArea(vector<int> &height){
 	}
 	return sum;
 }
-
 
 
