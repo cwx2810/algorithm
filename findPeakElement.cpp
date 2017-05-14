@@ -7,8 +7,8 @@ using namespace std;
 int findPeakElement(vector<int>& nums);
 
 int main(){
-	int A[]={1,2,3,1};
-	vector<int> nums(A,A+4);
+	int A[]={1,2};
+	vector<int> nums(A,A+2);
 	int result=findPeakElement(nums);
 	cout<<result;
 }
@@ -30,7 +30,7 @@ int findPeakElement(vector<int>& nums){
 	while(start<=end){
 		mid=(start+end)/2;
 		//mid直接是峰值或者把mid逼到两端的情况 
-		if(mid==0||nums[mid]>=nums[mid-1] && mid==nums.size()-1||nums[mid]>=nums[mid+1]){
+		if((mid==0||nums[mid]>=nums[mid-1]) && (mid==nums.size()-1||nums[mid]>=nums[mid+1])){
 			return mid;
 		}else if(mid>0 && nums[mid-1]>nums[mid]){//mid左边比mid大，向左查找 
 			end=mid-1;
