@@ -18,7 +18,7 @@ int main(){
  */
 }
 
-//判断是不是平衡二叉树，用DFS判断每个子树的高度
+//判断是不是平衡二叉树，用DFS判断每个子树的高度 
 
 bool isBalanced(TreeNode* root) {
     //corner case 根节点为空是平衡二叉树 
@@ -58,7 +58,7 @@ int getHeight(TreeNode* root){
 	}
 	//否则（高度差是1或者0），递归下一层再次计算高度差 
 	else{
-		return diffHeight(leftHeight>rightHeight?leftHeight:rightHeight)+1;//低的哪边没有孩子了，所以从高的那边往下继续走 
+		return diffHeight=(leftHeight>rightHeight?leftHeight:rightHeight)+1;//低的哪边没有孩子了，所以从高的那边往下继续走 
 	} 	
 }
 
