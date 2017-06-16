@@ -1,0 +1,28 @@
+//递增输出单链表元素，限制辅助空间，也就是不能先排序，要直接输出 
+//思想，只能直接遍历查找最小元素，输出释放，循环往复
+void Min_Delete(LinkList& head){
+	//当链表除头结点外不为空（最后管头结点），迭代
+	while(head->next!=NULL){
+		//记住，pre始终代表最小节点的前驱，初始化为头结点
+		pre=head; 
+		//p为移动工作指针，初始化为pre的后继
+		p=pre->next; 
+		//当p后继不为空，即走到头之前，判断p的后继是否是最小节点
+		while(p->next!=NULL){
+			//若是，则改变pre
+			if(p->next->data<pre->next->data){
+				pre=p;
+			}
+			//是与不是都要移动p
+			p=p->next;
+		}
+		//打印输出最小值
+		print(pre->next->data);
+		//释放节点
+		u=pre->next;
+		pre->next=u->next;
+		free(u);
+	}
+	//最后释放头结点
+	free(head); 
+} 
