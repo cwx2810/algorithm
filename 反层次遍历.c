@@ -1,0 +1,33 @@
+//自下而上，从右到左反层次遍历
+//用队列保存树，层次遍历时将其压栈，再次出栈时自然是倒序
+void InvertLevel(BitTree T){
+	//初始化栈和队列 
+	Stack s;Queue Q;
+	//只要树不为空，持续迭代访问
+	if(bt!=NULL){
+		//进一步初始化栈和队列
+		InitStack(s);
+		InitQueue(Q);
+		//树根节点进队列
+		EnQueue(Q,bt);
+		//正向遍历压栈
+		while(IsEmpty(Q)==false){
+			//出队
+			DeQueue(Q,p);
+			//入栈
+			Push(s,p);
+			//根节点搞定了，压入栈底了，左右子树继续入队列
+			if(p->lchild){
+				EnQueue(Q,p->lchild);
+			} 
+			if(p->rchild){
+				EnQueue(Q,p->rchild);
+			}
+		} 
+		//访问栈，自然成倒序
+		while(IsEmpty(s)==false){
+			Pop(s,p);
+			visit(p->data);
+		} 
+	} 
+} 
