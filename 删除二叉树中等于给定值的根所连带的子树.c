@@ -1,0 +1,51 @@
+//删除二叉树中小根值为给定值的子树
+//用层次遍历找该节点，找到该节点后用后序遍历的思路，先删除左右子树，最后释放自己
+void DeleteXTree(BitTree b){
+	//如果树是存在的，递归删除左右子树，最后释放根节点 
+	if(b){
+		Search(b->lchild);
+		Search(b->rchild);
+		free(b);
+	} 
+} 
+void Search(BiTree b,ElemType x){
+	//初始化队列存放二叉树
+	BiTree Q[];
+	//如果树存在，则可以寻找
+	if(b){
+		//corner case 根节点就是x，删除整个树
+		if(b->data==x){
+			DeleteXTree(b);
+			exit(0);
+		} 
+		//初始化队列，根节点入队
+		InitQueue(Q);
+		EnQueue(Q,b);
+		//迭代到队列为空为止
+		while(!IsEmpty(Q)){
+			//取出节点
+			DeQueue(Q,p);
+			//如果有左子树，则判断左子树是否符合，不符合入队列等待下一轮往下一层次判断 
+			if(p->lchild){
+				//如果左子树符合根节点为x，删之 
+				if(p->lchild->data==x){
+					DeleteXTree(p->lchild);
+					//左边置空
+					p->lchild=NULL; 
+				}else{
+					//不符合入队
+					EnQueue(Q,p->lchild); 
+				}
+			}
+			//同样对右子树判断
+			if(p->rchild){
+				if(p->rchild->data==x){
+					DeleteXTree(p->rchild);
+					p->rchild=NULL;
+				}else{
+					EnQueue(Q,p->rchild);
+				}
+			} 
+		} 
+	} 
+}
