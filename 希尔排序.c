@@ -1,0 +1,21 @@
+//希尔排序，将给定序列拆分成小块，每块进行直接插入排序
+//和插入排序很类似，区别是，增量不是1，是dk
+void ShellSort(ElemType A[],int n){
+	//步长变化
+	for(dk=len/2;dk>=1;dk=dk/2){
+		//对每个dk迭代
+		for(i=dk+1;i<=n;++i){
+			//如果遍历到的元素i比前面的dk小，符合插入条件
+			if(A[i].key<A[i-dk].key){
+				//存储插入元素
+				A[0]=A[i];
+				//查找插入位子，后移节点
+				for(j=i-dk;j>0&&A[0].key<A[j].key;j=j-dk){
+					A[j+dk]=A[j];
+				} 
+				//插入
+				A[j+dk]=A[0]; 
+			} 
+		} 
+	} 
+} 
