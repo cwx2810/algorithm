@@ -43,4 +43,4 @@ void generate(int start,vector<int> &tmp,vector<int> &nums){
 		//一条路走到头，返回到这里，弹栈走另一条
 		tmp.pop_back(); 
 	} 
-} 
+}
