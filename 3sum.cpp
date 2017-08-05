@@ -20,15 +20,17 @@ int main(){
 
 
 
-
+//给定数组，找出数组中所有相加为0的三个数 
 //关键在理解重复的判断，三人组里每个元素的遍历确定是独立的、单独循环的，不影响另外两个元素
 //所以元素内部遇到重复的要++跳过，不然出来的是一样的数组，而元素之间可以重复 
 vector<vector<int> > threeSum(vector<int>& nums) {
+	//初始化返回数组 
     vector<vector<int> > ret;
+    //corner case 给定数组只有两个元素是凑不出三个的 
     if(nums.size()<=2){
     	return ret;
 	}
-	sort(nums.begin(),nums.end());//先排序 
+	sort(nums.begin(),nums.end());//先排序，题目要求有序 
 	for(int i=0;i<nums.size();i++){
 	    int j=i+1;
 	    int k=nums.size()-1;
