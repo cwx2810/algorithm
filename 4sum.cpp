@@ -20,13 +20,16 @@ int main(){
 }
 
 
-
+//4个数的和等于target，和3sum一毛一样，多一层循环 
 //外层循环多了j循环 
 vector<vector<int> > fourSum(vector<int> &num, int target) {
+	//初始化返回数组 
     vector<vector<int> > ret;
+    //corner case 给定数组不足4个元素 
     if(num.size()<4){
     	return ret;
 	}
+	//先排序 
 	sort(num.begin(),num.end());
 	for(int i=0;i<num.size();i++){//i循环 
 		for(int j=i+1;j<num.size();j++){//j循环 
